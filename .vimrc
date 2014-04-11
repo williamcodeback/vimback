@@ -7,15 +7,31 @@ nmap <F10> :TrinityToggleTagList<CR>
 " Open and close the NERD_tree.vim separately
 nmap <F11> :TrinityToggleNERDTree<CR>
 "vnoremap y "+y
-"vnoremap y "*y
+vnoremap y "*y
 vnoremap p "+p
 "set mouse=r
 set nu
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
-set clipboard=unnamed
+"set clipboard=unnamed
 set clipboard=unnamedplus
 
+"search
+set incsearch
+
+"Full path
+set statusline+=%F
+
+"cursor line
+set cursorline
+
+"High light unwanted spaces in end of line
+highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
+autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endif
+autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
+
+"Set color scheme
+"set t_Co=256
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cscope setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -40,6 +56,9 @@ nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
+" Mouse keep
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
 " OmniCppComplete
 
 set nocp
@@ -57,5 +76,6 @@ let OmniCpp_MayCompleteScope = 1
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 let OmniCpp_SelectFirstItem = 2
 let OmniCpp_DisplayMode=1
+
 
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif

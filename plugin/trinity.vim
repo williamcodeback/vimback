@@ -100,7 +100,7 @@ function! <SID>Trinity_InitTagList()
     " Split to the right side of the screen
     let g:Tlist_Use_Left_Window = 1
     " Set the window width
-    let g:Tlist_WinWidth = 40
+    let g:Tlist_WinWidth = 30
     " Sort by the order
     let g:Tlist_Sort_Type = "order"
     " Do not display the help info
@@ -159,7 +159,7 @@ endfunction " }}}
 function! <SID>Trinity_InitNERDTree()
 
     " Set the window width
-    let g:NERDTreeWinSize = 23
+    let g:NERDTreeWinSize = 15
     " Set the window position
     let g:NERDTreeWinPos = "right"
     " Auto centre
