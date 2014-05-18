@@ -1,0 +1,14 @@
+cp goproj.sh and put it in ~/bin
+
+# tar zxvf kernel-2.6.29.tar.gz
+# cd kernel-2.6.29
+# goproj.sh `pwd`
+# vim xxx.c
+
+
+[ Ctrl + \ + s ] : 搜尋游標上的 function 哪邊參考到
+[ Ctrl + \ + c ] : 搜尋游標上的 function 哪邊呼叫到
+[ Ctrl + \ + g ] : 搜尋游標上的 function 是在哪邊定義的
+
+[ Ctrl + \ + t ] : 跳回下一個位置
+[ Ctrl + \ + o ] : 跳回上一個位置
